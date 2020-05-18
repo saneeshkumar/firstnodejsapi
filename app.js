@@ -1,9 +1,12 @@
 import express from 'express';
-import todo from './apis/todo.js';
+import bodyParser from 'body-parser';
+import todosRoute from './routes/todos-route.js';
 
 //set up the express app
 const app = express();
-app.use(todo)
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(todosRoute)
 
 const PORT = 5000;
 
